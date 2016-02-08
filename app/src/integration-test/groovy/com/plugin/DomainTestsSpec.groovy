@@ -10,35 +10,35 @@ import spock.lang.*
 class DomainTestsSpec extends Specification {
 
    void setupData() {
-        new Dog(name:'chuckie', colour:'black').save(flush:true)
-        new Bar(name:'chuckie', colour:'black').save(flush:true)
+        new Dog(name:'chuck').save(flush:true)
+        new Bar(name:'chuck').save(flush:true)
     }
 
     void "Test finding with Dog class"() {
         given:
             setupData()
         expect:
-            Dog.findWhere(name:"chuckie") != null
+            Dog.findWhere(name:"chuck") != null
     }
 
     void "Test finding with Animal class (polymorphic)"() {
         given:
             setupData()
         expect:
-            Animal.findWhere(name:"chuckie") != null
+            Animal.findWhere(name:"chuck") != null
     }
 
     void "Test finding with Bar class"() {
         given:
             setupData()
         expect:
-            Bar.findWhere(name:"chuckie") != null
+            Bar.findWhere(name:"chuck") != null
     }
 
     void "Test finding with Foo class (polymorphic)"() {
         given:
             setupData()
         expect:
-            Foo.findWhere(name:"chuckie") != null
+            Foo.findWhere(name:"chuck") != null
     }    
 }
